@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "0abb22c0-4487-47da-b9bc-5b769000e88a",
+		"name": "Assurity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Load response into object\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"//set properties\r",
+							"let promotions = jsonData.Promotions[1];\r",
+							"let name = jsonData.Name;\r",
+							"let canrelist = jsonData.CanRelist;\r",
+							"\r",
+							"//Check index of the element promotion\r",
+							"console.log(promotions);\r",
+							"\r",
+							"//test status code\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//test if value of Name is equal to Carbon credits & value of CanRelist is equal to true\r",
+							"pm.test(\"Check value of Name is 'Carbon credits' | Check value of CanRelist is true\", function(){\r",
+							"    pm.expect(name).to.eql(\"Carbon credits\");\r",
+							"    pm.expect(canrelist).to.be.true;\r",
+							"})\r",
+							"\r",
+							"//test if the Promotions element with Name = \"Gallery\" has a Description that contains the text \"Good position in category\"\r",
+							"pm.test(\"Check if 'Gallery' has a Description that contains 'Good position in category'\", function(){\r",
+							"    pm.expect(promotions.Name).to.eql(\"Gallery\");\r",
+							"    pm.expect(promotions.Description).to.includes(\"Good position in category\");\r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tmsandbox",
+						"co",
+						"nz"
+					],
+					"path": [
+						"v1",
+						"Categories",
+						"6327",
+						"Details.json"
+					],
+					"query": [
+						{
+							"key": "catalogue",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
