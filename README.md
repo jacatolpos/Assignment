@@ -1,3 +1,3 @@
-# Assurity
+# Technical Assignment
 Jelan technical assignment
 
