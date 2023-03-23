@@ -4,7 +4,7 @@ Jelan technical assignment
 ## Execute and Review Code
 1. Open postman
 2. Click Import
-3. Drag the assignmentpostman.yml file to postman (extracted from the zipped file)
+3. Drag the jelly.ann.a.catolpos_Assurity.postman_collection file to postman (extracted from the zipped file)
 4. Collection name is Assurity
 5. Click Import
 6. Expand the Assurity collection and click on the API call
